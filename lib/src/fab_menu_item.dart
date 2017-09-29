@@ -1,4 +1,4 @@
-part of fab_dialer;
+part of flutter_fab_dialer;
 
 typedef void OnFabMiniMenuItemPressed();
 

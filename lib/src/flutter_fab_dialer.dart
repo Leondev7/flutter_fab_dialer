@@ -1,4 +1,4 @@
-part of fab_dialer;
+part of flutter_fab_dialer;
 
 class FabDialer extends StatefulWidget {
   const FabDialer(this._fabMiniMenuItemList, this._fabColor, this._fabIcon);
