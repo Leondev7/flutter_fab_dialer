@@ -3,6 +3,8 @@
 
 This is a Widget build for having an alternative to default menus
 
+![alt text](https://github.com/Leondev7/flutter_fab_dialer/blob/master/src/demo.gif )
+
 ## Usage
 ### Create a list with your desired elements and customize each one
 ```dart
@@ -43,6 +45,4 @@ This is a Widget build for having an alternative to default menus
                     ],
         ));
 ```
-
-![alt text](https://github.com/Leondev7/flutter_fab_dialer/blob/master/src/demo.gif )
 
