@@ -1,8 +1,4 @@
-library flutter_fab_dialer;
-
-import 'package:flutter/material.dart';
-
-import 'fab_menu_item.dart';
+part of fab_dialer;
 
 class FabDialer extends StatefulWidget {
   const FabDialer(this._fabMiniMenuItemList, this._fabColor, this._fabIcon);

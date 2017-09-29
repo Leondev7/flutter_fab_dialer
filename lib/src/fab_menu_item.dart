@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of fab_dialer;
 
 typedef void OnFabMiniMenuItemPressed();
 
