@@ -45,5 +45,5 @@ This is a Widget build for having an alternative to default menus
 ```
 
 Inline-style: 
-![alt text](https://github.com/Leondev7/flutter_fab_dialer/tree/master/src/demo.gif )
+![alt text](https://github.com/Leondev7/flutter_fab_dialer/blob/master/src/demo.gif )
 
