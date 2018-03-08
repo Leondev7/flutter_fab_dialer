@@ -3,24 +3,34 @@ part of flutter_fab_dialer;
 typedef void OnFabMiniMenuItemPressed();
 
 class FabMiniMenuItem {
-  const FabMiniMenuItem(
-      {this.elevation,
-      this.text,
-      this.icon,
-      this.fabColor,
-      this.chipColor,
-      this.textColor,
-      this.tooltip,
-      this.onPressed});
+   double elevation;
+   String text;
+   Icon icon;
+   Color fabColor;
+   Color chipColor;
+   String tooltip;
+   Color textColor;
+   OnFabMiniMenuItemPressed onPressed;
 
-  final double elevation;
-  final String text;
-  final Icon icon;
-  final Color fabColor;
-  final Color chipColor;
-  final String tooltip;
-  final Color textColor;
-  final OnFabMiniMenuItemPressed onPressed;
+
+
+   FabMiniMenuItem.withText(
+      this.icon,
+       this.fabColor,
+       this.elevation,
+       this.tooltip,
+       this.onPressed,
+       this.text,
+       this.chipColor,
+       this.textColor);
+
+  FabMiniMenuItem.noText(this.icon,this.fabColor,this.elevation,this.tooltip,this.onPressed){
+    this.text = null;
+    this.chipColor = null;
+    this.textColor = null;
+  }
+
+
 }
 
 class FabMenuMiniItemWidget extends StatelessWidget {
@@ -63,7 +73,8 @@ class FabMenuMiniItemWidget extends StatelessWidget {
                       curve: new Interval(((index + 1) / 10), 1.0,
                           curve: Curves.linear),
                     ),
-                    child: new Chip(
+                    child: chipColor!=null
+                        ?new Chip(
                       label: new Text(
                         text,
                         textAlign: TextAlign.center,
@@ -72,7 +83,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
                             color: textColor, fontWeight: FontWeight.bold),
                       ),
                       backgroundColor: chipColor,
-                    ))),
+                    ):null)),
             new ScaleTransition(
               scale: new CurvedAnimation(
                 parent: controller,
