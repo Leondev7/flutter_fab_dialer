@@ -1,3 +1,13 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 09/29/2017
 
-* TODO: Describe initial release.
+* Fab Dialer library
+
+## [0.0.3] - 03/08/2018
+
+* Removed default constructor for FabDialerMenuItem
+
+* Added two new constructors
+
+* New Constructor NoText.
+
+* New Constructor WithText.
