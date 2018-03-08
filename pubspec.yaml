@@ -4,8 +4,6 @@ version: 0.0.2
 author: Leondev7 <leondev7jgt@gmail.com>
 homepage: https://github.com/Leondev7/flutter_fab_dialer
 
-flutter:
-
 dependencies:
   flutter:
     sdk: flutter
