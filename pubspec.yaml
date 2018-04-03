@@ -1,6 +1,6 @@
 name: flutter_fab_dialer
 description: A new flutter package project.
-version: 0.0.3
+version: 0.0.4
 author: Leondev7 <leondev7jgt@gmail.com>
 homepage: https://github.com/Leondev7/flutter_fab_dialer
 
@@ -10,3 +10,6 @@ dependencies:
 
 dev_dependencies:
   test: ^0.12.0
+
+environment:
+  sdk: ">=2.0.0-dev.28.0 <3.0.0"

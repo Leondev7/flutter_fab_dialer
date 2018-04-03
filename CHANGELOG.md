@@ -11,3 +11,7 @@
 * New Constructor NoText.
 
 * New Constructor WithText.
+
+## [0.0.4] - 03/08/2018
+
+* Edited pubspec.yaml to add Dart SDK
