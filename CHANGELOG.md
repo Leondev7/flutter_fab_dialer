@@ -15,3 +15,7 @@
 ## [0.0.4] - 03/08/2018
 
 * Edited pubspec.yaml to add Dart SDK
+
+## [0.0.5] - 08/05/2018
+
+* Added HeroTag to fab list

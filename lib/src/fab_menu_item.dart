@@ -12,8 +12,6 @@ class FabMiniMenuItem {
    Color textColor;
    OnFabMiniMenuItemPressed onPressed;
 
-
-
    FabMiniMenuItem.withText(
       this.icon,
        this.fabColor,
@@ -29,7 +27,6 @@ class FabMiniMenuItem {
     this.chipColor = null;
     this.textColor = null;
   }
-
 
 }
 
@@ -96,6 +93,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
                   backgroundColor: fabColor,
                   tooltip: 'Increment',
                   child: icon,
+                  heroTag: "$index",
                   onPressed: onPressed),
             )
           ],

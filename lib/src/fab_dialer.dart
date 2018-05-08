@@ -20,7 +20,7 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
   final List<FabMiniMenuItem> _fabMiniMenuItemList;
   final Color _fabColor;
   final Icon _fabIcon;
-  List<FabMenuMiniItemWidget> _fab_menu_items;
+  List<FabMenuMiniItemWidget> _fabMenuItems;
 
   AnimationController _controller;
 
@@ -38,9 +38,9 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
   }
 
   void setFabMenu(List<FabMiniMenuItem> fabMenuList) {
-    List<FabMenuMiniItemWidget> _fab_menu_items = new List();
+    List<FabMenuMiniItemWidget> fabMenuItems = new List();
     for (int i = 0; i < _fabMiniMenuItemList.length; i++) {
-      _fab_menu_items.add(new FabMenuMiniItemWidget(
+      fabMenuItems.add(new FabMenuMiniItemWidget(
         tooltip: _fabMiniMenuItemList[i].tooltip,
         text: _fabMiniMenuItemList[i].text,
         elevation: _fabMiniMenuItemList[i].elevation,
@@ -53,8 +53,8 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
         controller: _controller,
       ));
     }
-    ;
-    this._fab_menu_items = _fab_menu_items;
+
+    this._fabMenuItems = fabMenuItems;
   }
 
   void _rotate() {
@@ -80,7 +80,7 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
           children: <Widget>[
             new Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: _fab_menu_items,
+              children: _fabMenuItems,
             ),
             new Row(
               mainAxisAlignment: MainAxisAlignment.end,
