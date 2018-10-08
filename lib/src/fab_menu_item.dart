@@ -2,16 +2,21 @@ part of flutter_fab_dialer;
 
 typedef void OnFabMiniMenuItemPressed();
 
+typedef void HideWidget();
+
 class FabMiniMenuItem {
    double elevation;
    String text;
    Icon icon;
+   ImageProvider image;
    Color fabColor;
    Color chipColor;
    String tooltip;
    Color textColor;
    AnimationStyle animationStyle;
    OnFabMiniMenuItemPressed onPressed;
+   bool hideOnClick;
+
 
    FabMiniMenuItem.withText(
       this.icon,
@@ -21,13 +26,46 @@ class FabMiniMenuItem {
        this.onPressed,
        this.text,
        this.chipColor,
-       this.textColor);
+       this.textColor,
+       this.hideOnClick);
 
-  FabMiniMenuItem.noText(this.icon,this.fabColor,this.elevation,this.tooltip,this.onPressed){
+   FabMiniMenuItem.withTextWithImage(
+       this.image,
+       this.elevation,
+       this.tooltip,
+       this.onPressed,
+       this.text,
+       this.chipColor,
+       this.textColor,
+       this.hideOnClick){
+     this.fabColor = null;
+
+   }
+
+  FabMiniMenuItem.noText(this.icon,
+      this.fabColor,
+      this.elevation,
+      this.tooltip,
+      this.onPressed,
+      this.hideOnClick){
     this.text = null;
     this.chipColor = null;
     this.textColor = null;
+    this.image = null;
   }
+
+   FabMiniMenuItem.noTextWithImage(
+       this.image,
+       this.elevation,
+       this.tooltip,
+       this.onPressed,
+       this.hideOnClick){
+
+     this.text = null;
+     this.chipColor = null;
+     this.textColor = null;
+     this.fabColor = null;
+   }
 }
 
 class FabMenuMiniItemWidget extends StatelessWidget {
@@ -36,6 +74,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
       this.elevation,
       this.text,
       this.icon,
+      this.image,
       this.fabColor,
       this.chipColor,
       this.textColor,
@@ -43,12 +82,14 @@ class FabMenuMiniItemWidget extends StatelessWidget {
       this.index,
       this.controller,
       this.onPressed,
+        this.hideWidget,
       this.animationStyle,
       this.itemCount})
       : super(key: key);
   final double elevation;
   final String text;
   final Icon icon;
+  final ImageProvider image;
   final Color fabColor;
   final Color chipColor;
   final String tooltip;
@@ -56,6 +97,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
   final int index;
   final int itemCount;
   final OnFabMiniMenuItemPressed onPressed;
+  final HideWidget hideWidget;
   final AnimationController controller;
   final AnimationStyle animationStyle;
 
@@ -180,14 +222,39 @@ class FabMenuMiniItemWidget extends StatelessWidget {
   }
 
   Widget _getFloatingActionButton() {
-    return new FloatingActionButton(
+    return fabColor!= null ?
+     new FloatingActionButton(
         elevation: elevation,
         mini: true,
         backgroundColor: fabColor,
         tooltip: tooltip,
         child: icon,
         heroTag: "$index",
-        onPressed: onPressed);
+        onPressed:() {onPressed();
+        hideWidget == null ? null :
+        hideWidget();}):
+    new FloatingActionButton(
+    elevation: elevation,
+    tooltip: tooltip,
+        mini: true,
+        child: new ConstrainedBox(
+          constraints: new BoxConstraints.expand(),
+          child: new Container(
+              decoration: new BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: new DecorationImage(
+                      image: image,
+                      fit: BoxFit.cover,
+
+              ),
+              ),
+    ),
+        ),
+    heroTag: "$index",
+    onPressed:() {
+      onPressed();
+      hideWidget == null ? null :
+      hideWidget();});
   }
 
   @override

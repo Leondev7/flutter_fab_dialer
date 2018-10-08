@@ -1,11 +1,5 @@
 part of flutter_fab_dialer;
 
-enum AnimationStyle {
-  fadeIn,
-  slideInDown,
-  defaultAnimation,
-}
-
 class FabDialer extends StatefulWidget {
   // AnimationStyle is an optional parameter to avoid breaking changes
   const FabDialer(this._fabMiniMenuItemList, this._fabColor, this._fabIcon, [this._fabAnimationStyle = AnimationStyle.defaultAnimation]);
@@ -54,6 +48,7 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
         text: _fabMiniMenuItemList[i].text,
         elevation: _fabMiniMenuItemList[i].elevation,
         icon: _fabMiniMenuItemList[i].icon,
+        image: _fabMiniMenuItemList[i].image,
         index: i,
         onPressed: _fabMiniMenuItemList[i].onPressed,
         textColor: _fabMiniMenuItemList[i].textColor,
@@ -62,6 +57,7 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
         controller: _controller,
         animationStyle: _fabAnimationStyle,
         itemCount: _fabMiniMenuItemList.length, // Send item count to each item to help animation calc
+        hideWidget: _fabMiniMenuItemList[i].hideOnClick == false ? null : _rotate,
       ));
     }
 

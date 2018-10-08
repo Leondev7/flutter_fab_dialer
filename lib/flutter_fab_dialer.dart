@@ -8,3 +8,4 @@ import 'package:flutter/material.dart';
 
 part 'src/fab_dialer.dart';
 part 'src/fab_menu_item.dart';
+part 'src/animation_style.dart';
