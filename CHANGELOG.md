@@ -29,3 +29,13 @@
 * Added animations
 
 * Fixed chip color
+
+## [0.1.1] - 08/10/2018
+
+* Added example
+
+* Formatted code
+
+* Added description
+
+* Removed dependency from Dart-dev
