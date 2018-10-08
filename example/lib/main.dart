@@ -28,8 +28,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -46,8 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   static String getNewCatUrl() {
     return 'http://thecatapi.com/api/images/get?format=src&type=jpg&size=small'
         '#${new DateTime.now().millisecondsSinceEpoch}';
@@ -61,7 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
   void _logCounter() {
     setState(() {
       print(_counter);
@@ -74,44 +69,22 @@ class _MyHomePageState extends State<MyHomePage> {
     ImageProvider img = new NetworkImage(getNewCatUrl());
 
     var _fabMiniMenuItemList = [
-      new FabMiniMenuItem.withTextWithImage(
-        img,
-        4.0,
-        "Button menu",
-        _logCounter,
-        "Click me",
-        Colors.blue,
-        Colors.white,
-        true
-      ),
-
+      new FabMiniMenuItem.withTextWithImage(img, 4.0, "Button menu",
+          _logCounter, "Click me", Colors.blue, Colors.white, true),
       new FabMiniMenuItem.withText(
-        new Icon(Icons.add),
-        Colors.blue,
-        4.0,
-        "Button menu",
-        _incrementCounter,
-        "Click me",
-        Colors.blue,
-        Colors.white,
-        true
-      ),
-      new FabMiniMenuItem.noText(
-        new Icon(Icons.add),
-        Colors.blue,
-        4.0,
-        "Button menu",
-        _logCounter,
-        false
-      ),
-
+          new Icon(Icons.add),
+          Colors.blue,
+          4.0,
+          "Button menu",
+          _incrementCounter,
+          "Click me",
+          Colors.blue,
+          Colors.white,
+          true),
+      new FabMiniMenuItem.noText(new Icon(Icons.add), Colors.blue, 4.0,
+          "Button menu", _logCounter, false),
       new FabMiniMenuItem.noTextWithImage(
-        img,
-        4.0,
-        "Button menu",
-        _incrementCounter,
-        false
-      )
+          img, 4.0, "Button menu", _incrementCounter, false)
     ];
 
     return new Scaffold(
@@ -119,13 +92,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: new Text(widget.title),
       ),
       //Using a Stack will assure that the Dialer will appear at the end of your layout
-      body:  new Stack(
+      body: new Stack(
         children: <Widget>[
           new Center(
             child: new Column(
               children: <Widget>[
                 new Text('You have pushed the button this many times:'),
-                new Text('$_counter', style: Theme.of(context).textTheme.display1),
+                new Text('$_counter',
+                    style: Theme.of(context).textTheme.display1),
               ],
             ),
           ),
