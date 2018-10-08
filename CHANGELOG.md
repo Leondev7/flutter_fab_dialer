@@ -19,3 +19,13 @@
 ## [0.0.5] - 08/05/2018
 
 * Added HeroTag to fab list
+
+## [0.1.0] - 08/10/2018
+
+* Added image child for fab items
+
+* Added hide option when fab item is pressed
+
+* Added animations
+
+* Fixed chip color
