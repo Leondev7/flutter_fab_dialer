@@ -211,6 +211,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
   Widget _getChip() {
     return chipColor != null
         ? new Chip(
+      backgroundColor: chipColor,
       label: new Text(
         text,
         textAlign: TextAlign.center,
