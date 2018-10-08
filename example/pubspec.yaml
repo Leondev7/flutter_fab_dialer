@@ -1,0 +1,12 @@
+name: fab_dialer_test
+description: A new Flutter application.
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_fab_dialer:
+    path: "../"
+
+flutter:
+  uses-material-design: true

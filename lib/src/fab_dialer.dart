@@ -2,7 +2,8 @@ part of flutter_fab_dialer;
 
 class FabDialer extends StatefulWidget {
   // AnimationStyle is an optional parameter to avoid breaking changes
-  const FabDialer(this._fabMiniMenuItemList, this._fabColor, this._fabIcon, [this._fabAnimationStyle = AnimationStyle.defaultAnimation]);
+  const FabDialer(this._fabMiniMenuItemList, this._fabColor, this._fabIcon,
+      [this._fabAnimationStyle = AnimationStyle.defaultAnimation]);
 
   final List<FabMiniMenuItem> _fabMiniMenuItemList;
   final Color _fabColor;
@@ -10,12 +11,13 @@ class FabDialer extends StatefulWidget {
   final AnimationStyle _fabAnimationStyle;
 
   @override
-  FabDialerState createState() =>
-      new FabDialerState(_fabMiniMenuItemList, _fabColor, _fabIcon, _fabAnimationStyle);
+  FabDialerState createState() => new FabDialerState(
+      _fabMiniMenuItemList, _fabColor, _fabIcon, _fabAnimationStyle);
 }
 
 class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
-  FabDialerState(this._fabMiniMenuItemList, this._fabColor, this._fabIcon, this._fabAnimationStyle);
+  FabDialerState(this._fabMiniMenuItemList, this._fabColor, this._fabIcon,
+      this._fabAnimationStyle);
 
   int _angle = 90;
   bool _isRotated = true;
@@ -56,8 +58,10 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
         chipColor: _fabMiniMenuItemList[i].chipColor,
         controller: _controller,
         animationStyle: _fabAnimationStyle,
-        itemCount: _fabMiniMenuItemList.length, // Send item count to each item to help animation calc
-        hideWidget: _fabMiniMenuItemList[i].hideOnClick == false ? null : _rotate,
+        itemCount: _fabMiniMenuItemList.length,
+        // Send item count to each item to help animation calc
+        hideWidget:
+            _fabMiniMenuItemList[i].hideOnClick == false ? null : _rotate,
       ));
     }
 
