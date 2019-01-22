@@ -85,7 +85,7 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Container(
-        margin: new EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        margin: new EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
