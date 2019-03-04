@@ -63,6 +63,10 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _navigateToAnotherScreen() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (_) => AnotherScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     //The list of FabMiniMenuItems that we are going to use
@@ -82,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Colors.white,
           true),
       new FabMiniMenuItem.noText(new Icon(Icons.add), Colors.blue, 4.0,
-          "Button menu", _logCounter, false),
+          "Navigate new screen", _navigateToAnotherScreen, false),
       new FabMiniMenuItem.noTextWithImage(
           img, 4.0, "Button menu", _incrementCounter, false)
     ];
@@ -105,6 +109,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           new FabDialer(_fabMiniMenuItemList, Colors.blue, new Icon(Icons.add)),
         ],
+      ),
+    );
+  }
+}
+
+class AnotherScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Testing"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).pop();
+        }
       ),
     );
   }
