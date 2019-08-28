@@ -203,20 +203,27 @@ class FabMenuMiniItemWidget extends StatelessWidget {
     }
   }
 
-  Widget _getChip() {
+Widget _getChip() {
     return chipColor != null
         ? new Chip(
             backgroundColor: chipColor,
-            label: new Text(
-              text,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              style:
-                  new TextStyle(color: textColor, fontWeight: FontWeight.bold),
+            label: new InkWell(
+              onTap: () {
+                onPressed();
+                hideWidget == null ? null : hideWidget();
+              },
+              child: new Text(
+                text,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: new TextStyle(
+                    color: textColor, fontWeight: FontWeight.bold),
+              ),
             ),
           )
         : null;
   }
+
 
   Widget _getFloatingActionButton() {
     return fabColor != null
