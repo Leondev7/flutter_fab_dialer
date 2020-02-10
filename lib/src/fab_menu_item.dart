@@ -1,6 +1,6 @@
 part of flutter_fab_dialer;
 
-typedef void OnFabMiniMenuItemPressed();
+typedef void OnFabMiniMenuItemPressed(int index);
 
 typedef void HideWidget();
 
@@ -228,7 +228,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
             child: icon,
             heroTag: "$index",
             onPressed: () {
-              onPressed();
+              onPressed(index);
               hideWidget == null ? null : hideWidget();
             })
         : new FloatingActionButton(
@@ -249,7 +249,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
             ),
             heroTag: "$index",
             onPressed: () {
-              onPressed();
+              onPressed(index);
               hideWidget == null ? null : hideWidget();
             });
   }
