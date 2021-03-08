@@ -6,14 +6,14 @@ typedef void HideWidget();
 
 class FabMiniMenuItem {
   double elevation;
-  String text;
-  Icon icon;
-  ImageProvider image;
-  Color fabColor;
-  Color chipColor;
+  String? text;
+  Icon? icon;
+  ImageProvider? image;
+  Color? fabColor;
+  Color? chipColor;
   String tooltip;
-  Color textColor;
-  AnimationStyle animationStyle;
+  Color? textColor;
+  AnimationStyle? animationStyle;
   OnFabMiniMenuItemPressed onPressed;
   bool hideOnClick;
 
@@ -59,7 +59,7 @@ class FabMiniMenuItem {
 
 class FabMenuMiniItemWidget extends StatelessWidget {
   const FabMenuMiniItemWidget(
-      {Key key,
+      {Key? key,
       this.elevation,
       this.text,
       this.icon,
@@ -75,22 +75,22 @@ class FabMenuMiniItemWidget extends StatelessWidget {
       this.animationStyle,
       this.itemCount})
       : super(key: key);
-  final double elevation;
-  final String text;
-  final Icon icon;
-  final ImageProvider image;
-  final Color fabColor;
-  final Color chipColor;
-  final String tooltip;
-  final Color textColor;
-  final int index;
-  final int itemCount;
-  final OnFabMiniMenuItemPressed onPressed;
-  final HideWidget hideWidget;
-  final AnimationController controller;
-  final AnimationStyle animationStyle;
+  final double? elevation;
+  final String? text;
+  final Icon? icon;
+  final ImageProvider? image;
+  final Color? fabColor;
+  final Color? chipColor;
+  final String? tooltip;
+  final Color? textColor;
+  final int? index;
+  final int? itemCount;
+  final OnFabMiniMenuItemPressed? onPressed;
+  final HideWidget? hideWidget;
+  final AnimationController? controller;
+  final AnimationStyle? animationStyle;
 
-  Widget _buildAnimation(BuildContext context, Widget child) {
+  Widget _buildAnimation(BuildContext context, Widget? child) {
     final double deviceHeight = MediaQuery.of(context).size.height;
 
     switch (animationStyle) {
@@ -103,7 +103,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
             )
                 .animate(
                   new CurvedAnimation(
-                    parent: controller,
+                    parent: controller!,
                     curve: new Interval(
                       0.100,
                       0.900,
@@ -130,11 +130,11 @@ class FabMenuMiniItemWidget extends StatelessWidget {
         return new Container(
           padding: new EdgeInsetsTween(
             end: const EdgeInsets.only(bottom: 0.0),
-            begin: EdgeInsets.only(top: deviceHeight / itemCount / 3),
+            begin: EdgeInsets.only(top: deviceHeight / itemCount! / 3),
           )
               .animate(
                 new CurvedAnimation(
-                  parent: controller,
+                  parent: controller!,
                   curve: new Interval(
                     0.100,
                     0.600,
@@ -150,7 +150,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
             )
                 .animate(
                   new CurvedAnimation(
-                    parent: controller,
+                    parent: controller!,
                     curve: new Interval(
                       0.100,
                       0.600,
@@ -182,8 +182,8 @@ class FabMenuMiniItemWidget extends StatelessWidget {
                 margin: new EdgeInsets.symmetric(horizontal: 8.0),
                 child: new ScaleTransition(
                   scale: new CurvedAnimation(
-                    parent: controller,
-                    curve: new Interval(((index + 1) / 10), 1.0,
+                    parent: controller!,
+                    curve: new Interval(((index! + 1) / 10), 1.0,
                         curve: Curves.linear),
                   ),
                   child: _getChip(),
@@ -191,8 +191,8 @@ class FabMenuMiniItemWidget extends StatelessWidget {
               ),
               new ScaleTransition(
                 scale: new CurvedAnimation(
-                  parent: controller,
-                  curve: new Interval(((index + 1) / 10), 1.0,
+                  parent: controller!,
+                  curve: new Interval(((index! + 1) / 10), 1.0,
                       curve: Curves.linear),
                 ),
                 child: _getFloatingActionButton(),
@@ -203,12 +203,12 @@ class FabMenuMiniItemWidget extends StatelessWidget {
     }
   }
 
-  Widget _getChip() {
+  Widget? _getChip() {
     return chipColor != null
         ? new Chip(
             backgroundColor: chipColor,
             label: new Text(
-              text,
+              text!,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style:
@@ -228,8 +228,8 @@ class FabMenuMiniItemWidget extends StatelessWidget {
             child: icon,
             heroTag: "$index",
             onPressed: () {
-              onPressed();
-              hideWidget == null ? null : hideWidget();
+              onPressed!();
+              hideWidget == null ? null : hideWidget!();
             })
         : new FloatingActionButton(
             elevation: elevation,
@@ -241,7 +241,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
                 decoration: new BoxDecoration(
                   shape: BoxShape.circle,
                   image: new DecorationImage(
-                    image: image,
+                    image: image!,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -249,8 +249,8 @@ class FabMenuMiniItemWidget extends StatelessWidget {
             ),
             heroTag: "$index",
             onPressed: () {
-              onPressed();
-              hideWidget == null ? null : hideWidget();
+              onPressed!();
+              hideWidget == null ? null : hideWidget!();
             });
   }
 
@@ -263,7 +263,7 @@ class FabMenuMiniItemWidget extends StatelessWidget {
         children: <Widget>[
           new AnimatedBuilder(
             builder: _buildAnimation,
-            animation: controller,
+            animation: controller!,
           ),
         ],
       ),

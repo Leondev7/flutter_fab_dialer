@@ -25,9 +25,9 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
   final Color _fabColor;
   final Icon _fabIcon;
   final AnimationStyle _fabAnimationStyle;
-  List<FabMenuMiniItemWidget> _fabMenuItems;
+  late List<FabMenuMiniItemWidget> _fabMenuItems;
 
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -43,7 +43,7 @@ class FabDialerState extends State<FabDialer> with TickerProviderStateMixin {
   }
 
   void setFabMenu(List<FabMiniMenuItem> fabMenuList) {
-    List<FabMenuMiniItemWidget> fabMenuItems = new List();
+    List<FabMenuMiniItemWidget> fabMenuItems = new List.empty();
     for (int i = 0; i < _fabMiniMenuItemList.length; i++) {
       fabMenuItems.add(new FabMenuMiniItemWidget(
         tooltip: _fabMiniMenuItemList[i].tooltip,

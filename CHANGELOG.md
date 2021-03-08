@@ -39,3 +39,7 @@
 * Added description
 
 * Removed dependency from Dart-dev
+
+## [0.2.1] - 08/03/2021
+
+* Migrate to dart null safety
